@@ -1,7 +1,7 @@
 import express from "express";
 import db from "./config/dbConnect.js";
 import livros from "./model/Livro.js";
-import routes from "./routes/index.js";
+//import routes from "./routes/index.js";
 
 db.on("error", console.log.bind(console, "connection error:"));
 db.once("open", function () {
@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.json());
 
-routes(app);
+//routes(app);
 
 // const livros = [
 //   {
@@ -24,6 +24,12 @@ routes(app);
 //     titulo: "O Hobbit",
 //   },
 // ];
+
+app.get("/livros", (req, res) => {
+  livros.find((err, livros) => {
+    res.status(200).json(livros);
+  });
+});
 
 app.get("/", (req, res) => {
   res.status(200).send("Hello World!");

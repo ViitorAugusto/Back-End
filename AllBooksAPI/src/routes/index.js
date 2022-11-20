@@ -1,12 +1,12 @@
-import express from "express";
-import livros from "./livrosRoutes.js";
+// import express from "express";
+// import livros from "./livrosRoutes.js";
 
-const router = (app) => {
-  app.router("/").get((req, res) => {
-    res.status(200).send("Hello World!");
-  });
+// const routes = (app) => {
+//   app.router("/").get((req, res) => {
+//     res.status(200).send({titulo: "Bem vindo a API de livros"});
+//   });
 
-  app.use(express.json(), livros);
-};
+//   app.use(express.json(), livros);
+// };
 
-export default router;
+// export default routes;

@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
@@ -11,6 +12,7 @@
   "keywords": [],
   "author": "Vitor Augusto",
   "license": "ISC",
+  
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^6.7.2",

@@ -1,8 +1,9 @@
-import express from "express";
-import LivrosController from "../controllers/livrosControllers.js";
+// import express from "express";
+// import LivrosController from "../controllers/livrosControllers.js";
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get("/livros", LivrosController.ListarLivros);
+// router
+//     .get("/livros", LivrosController.ListarLivros);
 
-export default router;
+// export default router;
