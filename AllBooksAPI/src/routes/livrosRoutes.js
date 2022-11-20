@@ -1,9 +1,12 @@
-// import express from "express";
-// import LivrosController from "../controllers/livrosControllers.js";
+import express from "express";
+import LivrosController from "../controllers/livrosControllers.js";
 
-// const router = express.Router();
+const router = express.Router();
 
-// router
-//     .get("/livros", LivrosController.ListarLivros);
-
-// export default router;
+router
+  .get("/livros", LivrosController.ListarLivros)
+  .get("/livros/:id", LivrosController.ListarLivrosPorId)
+  .post("/livros", LivrosController.AdicionarLivro)
+  .put("/livros/:id", LivrosController.BuscarLivroPorId)
+  .delete("/livros/:id", LivrosController.DeletarLivro);
+export default router;
