@@ -3,6 +3,7 @@ import db from "./config/dbConnect.js";
 //import livros from "./model/Livro.js";
 import routes from "./routes/index.js";
 
+
 db.on("error", console.log.bind(console, "connection error:"));
 db.once("open", function () {
   console.log("Conectado ao banco de dados");

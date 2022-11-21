@@ -7,6 +7,6 @@ router
   .get("/livros", LivrosController.ListarLivros)
   .get("/livros/:id", LivrosController.ListarLivrosPorId)
   .post("/livros", LivrosController.AdicionarLivro)
-  .put("/livros/:id", LivrosController.BuscarLivroPorId)
+  .put("/livros/:id", LivrosController.EditarLivroPorId)
   .delete("/livros/:id", LivrosController.DeletarLivro);
 export default router;

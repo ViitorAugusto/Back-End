@@ -1,4 +1,4 @@
-import livros from "../model/Livro.js";
+import livros from "../model/Autor.js";
 
 class LivrosController {
   static ListarLivros = (req, res) => {
@@ -30,7 +30,7 @@ class LivrosController {
     });
   };
 
-  static BuscarLivroPorId = (req, res) => {
+  static EditarLivroPorId = (req, res) => {
     const id = req.params.id;
     livros.findByIdAndUpdate(id, { $set: req.body }, (err) =>{
       if(!err){
