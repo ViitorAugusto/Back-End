@@ -1,13 +1,13 @@
 import express from "express";
-import db from "./config/dbConnect.js";
+//import db from "./config/dbConnect.js";
 //import livros from "./model/Livro.js";
 import routes from "./routes/index.js";
+import dotenv from "dotenv";
 
-
-db.on("error", console.log.bind(console, "connection error:"));
-db.once("open", function () {
-  console.log("Conectado ao banco de dados");
-});
+// db.on("error", console.log.bind(console, "connection error:"));
+// db.once("open", function () {
+//   console.log("Conectado ao banco de dados");
+// });
 
 const app = express();
 
