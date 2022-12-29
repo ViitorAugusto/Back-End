@@ -1,12 +1,12 @@
 ### Pré-requistos globais: 
 
 
-`npm i -g nodemon typescript ts-node`
+```npm i -g nodemon typescript ts-node```
 
 ### Intalacão
 
-`npm install`
+```npm install```
 
 ### Para rodar o projeto
 
-`npm run start-dev`
+```npm run start-dev```
