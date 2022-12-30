@@ -51,3 +51,27 @@ export const fishes = (req: Request, res: Response) => {
     list
   });
 };
+
+export const turtle = (req: Request, res: Response) => {
+  let list = Pet.getFromType('turtle');
+  res.render("pages/page", {
+    menu: createMenuObject("turtle"),
+    banner: {
+      title: "Tartarugas",
+      background: "banner_turtle.jpg",
+    },
+    list
+  });
+}
+
+export const birds = (req: Request, res: Response) => {
+  let list = Pet.getFromType('birds');
+  res.render("pages/page", {
+    menu: createMenuObject("birds"),
+    banner: {
+      title: "Aves",
+      background: "banner_aves.png",
+    },
+    list
+  });
+}

@@ -1,5 +1,5 @@
 
-type PetType = "dog" | "cat" | "fish";
+type PetType = "dog" | "cat" | "fish" | "turtle" | "birds";
 type Pet ={
     type: PetType;
     image: string;
@@ -9,6 +9,7 @@ type Pet ={
 }
 
 const data: Pet[] = [
+ 
   {
     type: "dog",
     image: "pastor-alemao.jpg",
@@ -127,6 +128,62 @@ const data: Pet[] = [
     name: "Acará Bandeira",
     color: "Preto",
     sex: "Masculino",
+  },
+  {
+    type: "turtle",
+    image: "galapagos.jpg",
+    name: "Galapagos",
+    color: "Cinza",
+    sex: "Masculino",
+  },
+  {
+    type: "turtle",
+    image: "leatherbackseaturtle.jpg",
+    name: "Tartaruga-de-couro",
+    color: "Preto",
+    sex: "Feminino",
+  },
+  {
+    type: "turtle",
+    image: "tartaruga-verde.jpg",
+    name: "Tartaruga-verde",
+    color: "Verde",
+    sex: "Feminino",
+  },
+  {
+    type: "turtle",
+    image: "turtleazul.jpeg",
+    name: "Tartaruga-Azure",
+    color: "Azul",
+    sex: "Masculino",
+  },
+  {
+    type: "birds",
+    image: "albatroz-real.jpg",
+    name: "Albatroz-real",
+    color: "Branco",
+    sex: "Masculino",
+  },
+  {
+    type: "birds",
+    image: "araras.jpg",
+    name: "Araras",
+    color: "Azul",
+    sex: "Masculino",
+  },
+  {
+    type: "birds",
+    image: "papagaio-verde.jpg",
+    name: "Papagaio-verde",
+    color: "Verde",
+    sex: "Feminino",
+  },
+  {
+    type: "birds",
+    image: "suindara.jpg",
+    name: "Suindara",
+    color: "branco e larajnja",
+    sex: "Feminino",
   },
 ];
 
