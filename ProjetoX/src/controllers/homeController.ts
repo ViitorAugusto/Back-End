@@ -7,21 +7,43 @@ import { Product } from "../models/Product";
 
 export const home = async (req: Request, res: Response) => {
   let user = await User.findAll({
-   where: {
-      age: {
-        [Op.between] : [20, 50], // .between = entre
-        //[Op.eq]: 45, // .eq = igual
-        //[Op.gt]: 45, // .gt = maior que
-        //[Op.gte]: 45, // .gte = menor ou igual
-        //[Op.lt]: 45, // .lt = menor que
-        //[Op.lte]: 45, // .lte = menor ou igual
-      }
-   }
-  });
+      where: {
+        age: {
+          [Op.gte]: 18, // .gte = menor ou igual
+        }
+      }});
+  // let user = await User.findAll({
+  //   where: {
+  //     age: {
+  //       //[Op.between] : [20, 50], // .between = entre
+  //       //[Op.eq]: 45, // .eq = igual
+  //       //[Op.gt]: 45, // .gt = maior que
+  //       [Op.gte]: 18, // .gte = menor ou igual
+  //       //[Op.lt]: 45, // .lt = menor que
+  //       //[Op.lte]: 45, // .lte = menor ou igual
+  //       //[Op.Like]: "B%", // .Like = começa com a letra B
+  //     },
+  //   },
+  //   order: [
+  //     ['age', 'ASC'],
+  //     ['nome', 'DESC']
+  //   ],
+  //   offset: 0, // pular 0 registros
+  //   limit: 3, // limitar a 3 registros
+  // });
 
-  let user2 = await Pokemon.findAll({
-    attributes: ["nome", "type"],
-  });
+  // const user2 = Pokemon.build({
+  //   idtb_pok: 3,
+  //   nome: "Bonieky",
+  //   type: "Fogo",
+  // });
+  // await user2.save();
+
+  // const user = await User.create({
+  //   id: 9,
+  //   nome: "Bonieky",
+  //   age: 39,
+  // });
 
   let age: number = 90;
   let showOld: boolean = false;
@@ -41,6 +63,18 @@ export const home = async (req: Request, res: Response) => {
     expensives: expensiveList,
     frasesDoDia: [],
     user,
-    user2,
+    //user2,
   });
+};
+
+
+export const contatoAction = async (req: Request, res: Response) => {
+  let body = req.body;
+
+   await User.create({
+    nome: body.nome,
+    age: body.age,
+  });
+
+  res.redirect("/");
 };
