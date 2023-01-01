@@ -3,8 +3,9 @@ import { sequelize } from "../instances/mysql";
 
 // Especifico para o meu usuário TypeScript
 export interface UserInstance extends Model {
+  
   id: number;
-  name: string;
+  nome: string;
   age: number;
 }
 // Especifico para o sequelize

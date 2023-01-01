@@ -6,15 +6,21 @@ import { Pokemon } from "../models/Pokemon";
 import { Product } from "../models/Product";
 
 export const home = async (req: Request, res: Response) => {
-   await User.update({age:18},{
-    where: {
-      age:{
-        [Op.lt]: 18
-      }
-    }
-   })
-  // update sao passados 2 parametros, o primeiro é o que vai ser atualizado, o segundo é o where
+  let deleteResult = await User.findAll({ where: { nome: 'raupp' } });
 
+  if (deleteResult.length > 0) {
+    let user = deleteResult[0];
+    await user.destroy();
+  }
+
+  let result = await User.findAll({ where: { id:34 } });
+
+  if (result.length > 0) {
+    let user = result[0];
+    user.age = 50;
+    user.nome = "Lacerda";
+    await user.save();
+  }
 
   let user = await User.findAll();
   // let user = await User.findAll({
@@ -72,11 +78,10 @@ export const home = async (req: Request, res: Response) => {
   });
 };
 
-
 export const contatoAction = async (req: Request, res: Response) => {
   let body = req.body;
 
-   await User.create({
+  await User.create({
     nome: body.nome,
     age: body.age,
   });
