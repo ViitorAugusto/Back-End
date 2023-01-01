@@ -6,12 +6,17 @@ import { Pokemon } from "../models/Pokemon";
 import { Product } from "../models/Product";
 
 export const home = async (req: Request, res: Response) => {
-  let user = await User.findAll({
-      where: {
-        age: {
-          [Op.gte]: 18, // .gte = menor ou igual
-        }
-      }});
+   await User.update({age:18},{
+    where: {
+      age:{
+        [Op.lt]: 18
+      }
+    }
+   })
+  // update sao passados 2 parametros, o primeiro é o que vai ser atualizado, o segundo é o where
+
+
+  let user = await User.findAll();
   // let user = await User.findAll({
   //   where: {
   //     age: {
