@@ -20,10 +20,15 @@ Opa {{name}} {{lastName}}, tudo bem?
 
 
 <hr>
-<h2>Banco</h2>
+<h2>Banco de dados</h2>
 <ul>
-    {{#user}}
-        <li>{{nome}} -Idade: {{age}}</li>
+
+    {{#user}} (Primeira letra: {{firsLetterOfName}})
+        <li>{{nome}} -Idade: {{age}}
+        <a href='/usuario/{{id}}/mais'>+</a> 
+        <a href='/usuario/{{id}}/menos'>-</a>
+        <a href='/usuario/{{id}}/excluir'>X</a>
+        </li>
     {{/user}}
 </ul>
 

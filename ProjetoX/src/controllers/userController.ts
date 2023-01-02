@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import { User } from '../models/User';
+
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -30,3 +32,34 @@ export const idadeAction = (req: Request, res: Response) => {
         mostrarIdade
     });
 };
+
+export const addAge = async (req: Request, res: Response) => {
+    let id: string = req.params.id as string;
+    let result = await User.findAll({ where: { id:`${id}`} });
+    if (result.length > 0) {
+        let user = result[0];
+        user.age = user.age + 1;
+        await user.save();
+    }
+    res.redirect('/')
+}
+
+export const decreaseAge = async(req: Request, res: Response) => {
+    let id: string = req.params.id as string;
+    let result = await User.findAll({ where: { id:`${id}`} });
+    if (result.length > 0) {
+        let user = result[0];
+        user.age = user.age - 1;
+        await user.save();
+    }
+    res.redirect('/')
+}
+
+export const deleteUser = (req: Request, res: Response) => {
+    let id: string = req.params.id as string;
+    User.destroy({ where: { id:`${id}`} });
+    res.redirect('/')
+}
+
+
+

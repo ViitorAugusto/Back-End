@@ -6,14 +6,29 @@ import { Pokemon } from "../models/Pokemon";
 import { Product } from "../models/Product";
 
 export const home = async (req: Request, res: Response) => {
-  let deleteResult = await User.findAll({ where: { nome: 'raupp' } });
+  const [usuario, created] = await User.findOrCreate({
+    where: { nome: "Victor" },
+    defaults: {
+      nome: "Victor",
+      age: 28,
+    },
+  });
+  if (created) {
+    console.log("Usuario criado com sucesso!");
+  } else {
+    console.log("Achamos o usuario!");
+  }
+
+  console.log("Nome:", usuario.nome);
+
+  let deleteResult = await User.findAll({ where: { nome: "raupp" } });
 
   if (deleteResult.length > 0) {
     let user = deleteResult[0];
     await user.destroy();
   }
 
-  let result = await User.findAll({ where: { id:34 } });
+  let result = await User.findAll({ where: { id: 34 } });
 
   if (result.length > 0) {
     let user = result[0];
