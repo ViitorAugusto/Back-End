@@ -1,16 +1,16 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CriaUsuarioDto } from './dto/CriaUsuario.dto';
 import { UsuarioRepository } from './usuario.repository';
 
 // @Controller('/usuario') é um decorador que diz ao Nest que esta classe é um controlador
 
 @Controller('/usuario')
 export class UsuarioController {
-  
   constructor(private usuariosRepository: UsuarioRepository) {}
 
   // @Post() é um decorador que diz ao Nest que este método é um endpoint do tipo POST
   @Post()
-  async criarUsuario(@Body() dadosDoUsuario) {
+  async criarUsuario(@Body() dadosDoUsuario: CriaUsuarioDto) {
     this.usuariosRepository.salvar(dadosDoUsuario);
     return dadosDoUsuario;
   }
