@@ -7,3 +7,11 @@ export class CaracteristicaProdutoDTO {
   @IsString()
   descricao: string;
 }
+
+export class ImgageProdutoDTO {
+  @IsString()
+  url: string;
+
+  @IsString()
+  descricao: string;
+}

@@ -1,18 +1,20 @@
 import { Type } from 'class-transformer';
 import {
-    ArrayMinSize,
-    IsArray,
+  ArrayMinSize,
+  IsArray,
+  IsDateString,
   IsInt,
   IsNotEmpty,
   IsNumber,
-  IsOptional,
   IsPositive,
   IsString,
   MaxLength,
   ValidateNested,
 } from 'class-validator';
-import { CaracteristicaProdutoDTO} from './CaracteristicaProduto.dto';
-
+import {
+  CaracteristicaProdutoDTO,
+  ImgageProdutoDTO,
+} from './CaracteristicaProduto.dto';
 
 export class CriaProdutoDto {
   @IsString()
@@ -33,20 +35,35 @@ export class CriaProdutoDto {
   valor: number;
 
   @IsPositive({ message: 'Quantidade deve ser maior que 0' })
-  @IsInt({ message: 'Quantidade é obrigatório Ex: 10'})
+  @IsInt({ message: 'Quantidade é obrigatório Ex: 10' })
   quantidade: number;
 
-  
   @IsString()
   @MaxLength(100, { message: 'Descrição deve ter no máximo 100 caracteres' })
   @IsNotEmpty({ message: 'Descrição é obrigatório' })
   descricao: string;
- 
+
   @ValidateNested()
   @IsArray()
-  @ArrayMinSize(1 , { message: 'Deve ter no mínimo 2 caracteristicas' }) 
+  @ArrayMinSize(1, { message: 'Deve ter no mínimo 2 caracteristicas' })
   @Type(() => CaracteristicaProdutoDTO)
   caracteristicas: CaracteristicaProdutoDTO[];
 
-  
+  @ValidateNested()
+  @IsArray()
+  @ArrayMinSize(1, { message: 'Deve ter no mínimo 1 imagem' })
+  @Type(() => ImgageProdutoDTO)
+  imagens: ImgageProdutoDTO[];
+
+  @IsString()
+  @IsNotEmpty({ message: 'Categoria é obrigatório' })
+  categoria: string;
+
+  @IsString()
+  @IsDateString()
+  dataCriacao: Date;
+
+  @IsString()
+  @IsDateString()
+  dataAtualizacao: Date;
 }
