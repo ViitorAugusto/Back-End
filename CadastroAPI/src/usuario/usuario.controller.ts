@@ -3,6 +3,7 @@ import { CriaUsuarioDto } from './dto/CriaUsuario.dto';
 import { UsuarioEntity } from './usuario.entity';
 import { UsuarioRepository } from './usuario.repository';
 import {v4 as uuid} from 'uuid'
+import { ListaUsuarioDto } from './dto/ListaUsuario.dto';
 
 // @Controller('/usuario') é um decorador que diz ao Nest que esta classe é um controlador
 
@@ -26,6 +27,9 @@ export class UsuarioController {
   // listar os usuários cadastrados
   @Get()
   async listarUsuarios() {
-    return this.usuariosRepository.listar();
+    const usuariosSalvos = await this.usuariosRepository.listar();
+      const usuariosLista = usuariosSalvos.map(usuario => {
+        usuario => new ListaUsuarioDto(usuario.id, usuario.nome)
+      })
   }
 }
