@@ -12,8 +12,7 @@ export class ProdutoController {
     return dadosDoProduto;
   }
   @Get()
-    async listarProdutos(){
-        return this.produtoRepository.listar();
-    }
-  
+  async listarProdutos() {
+    return this.produtoRepository.listar();
+  }
 }
