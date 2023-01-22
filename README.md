@@ -29,7 +29,7 @@ Projeto API livros é uma API REST. para cadastrar recursos como livros, autores
 <br>
 <br>
 
-<h1 align="center"><a href="https://github.com/ViitorAugusto/Back-End/tree/main/ProjetoCanil"> 🐕 Projeto Canil</a></h1>
+<h1 align="center"><a href="https://github.com/ViitorAugusto/Back-End/tree/main/ProjetoCanil"> 🐕 CadastroApi</a></h1>
 
 <p align="center">
 Canil é uma página de busca por ADOÇÃO .
@@ -40,6 +40,24 @@ Canil é uma página de busca por ADOÇÃO .
 <p>O projeto de canil para adoção pode ser uma iniciativa muito importante para promover a responsabilidade animal e ajudar a encontrar lares responsáveis para cães que foram abandonados ou estão sem lar. Iniciar um projeto de canil para adoção pode ser um desafio, mas pode ser muito gratificante ajudar a encontrar lares responsáveis para cães que precisam de um lar.
 
 <a href="https://github.com/ViitorAugusto/Back-End/tree/main/ProjetoCanil"> 🌐 Projeto Canil </a></p>
+
+
+<hr>
+<br>
+<br>
+
+<h1 align="center"><a href="https://github.com/ViitorAugusto/Back-End/tree/main/ProjetoCanil"> 💻 CadastroAPI com Nest.js</a></h1>
+
+<p align="center">
+O projeto que vamos desenvolver é uma API Restful, no back-end
+</p>
+
+## 📃 Sobre o Projeto
+
+<p>O projeto que vamos desenvolver é uma API Restful, no back-end, que foi muito inspirada em projetos como Mercado Livre ou Enjoei, onde as pessoas podem se cadastrar e colocar seus produtos disponíveis na loja.
+.
+
+<a href="https://github.com/ViitorAugusto/Back-End/tree/main/CadastroAPI"> 🌐 API com Nest.js </a></p>
 
 
 <hr>
