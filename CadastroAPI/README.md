@@ -1,3 +1,62 @@
+<h1 align="center"><a href="#"> 💻 CadastroAPI com Nest.js</a></h1>
+
+<p align="center">
+O projeto que vamos desenvolver é uma API Restful, no back-end, que foi muito inspirada em projetos como Mercado Livre ou Enjoei, onde as pessoas podem se cadastrar e colocar seus produtos disponíveis na loja.
+
+</p>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+  
+</p>
+
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Post" src=".github/page1.png" width="100%">
+</p>
+<br>
+<p align="center">
+  <img alt="Get" src=".github/page2.png" width="100%">
+</p>
+<br>
+<p align="center">
+  <img alt="Editar" src=".github/page3.png" width="100%">
+</p>
+<p align="center">
+  <img alt="Deletar" src=".github/page4.png" width="100%">
+</p>
+
+
+## 🛠️ Tecnologias/ Ferramentas
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Nest.js](https://nestjs.com/) 
+- [Class Validation](https://docs.nestjs.com/techniques/validation)
+- [Node.Js e NPM](https://nodejs.org/)
+- [uuid](https://www.uuidgenerator.net/) 
+
+## 📃 Projeto
+O projeto que vamos desenvolver é uma API Restful, no back-end, que foi muito inspirada em projetos como Mercado Livre ou Enjoei, onde as pessoas podem se cadastrar e colocar seus produtos disponíveis na loja. Cadastro de usuários, Recebimento de dados,Validações dos dados,Fluxo de cadastro de usuários
+
+
+<br>
+<br>
+<hr>
+
+
+Feito por Vitor Augusto  [ 🌐 Linkedlin.](https://www.linkedin.com/in/viitoraugusto/)
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -22,7 +81,13 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+##  ⚙️ Description
+
+
+
+
+
+
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
@@ -71,3 +136,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+---
+

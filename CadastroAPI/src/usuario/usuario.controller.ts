@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CriaUsuarioDto } from './dto/CriaUsuario.dto';
 import { UsuarioEntity } from './usuario.entity';
@@ -51,38 +52,27 @@ export class UsuarioController {
     return usuariosLista;
   }
 
-  @Patch('/:id')
-  async atualizarUsuario(
-    @Param('id') id: string,
-    @Body() dadosParaAtualizar: AtualizarUsuarioDto,
-  ) {
-    const usuarioSalvo = await this.usuariosRepository.buscarPorId(id);
+  @Put('/:id')
+  async atualizarUsuario(@Param('id') id: string,@Body() dadosParaAtualizar: AtualizarUsuarioDto,) {
+    const usuarioSalvo = await this.usuariosRepository.atualizar(id, dadosParaAtualizar );
     try {
-      if (!usuarioSalvo) {
-        return { message: 'Usuário não encontrado' };
-      }
-      usuarioSalvo.nome = dadosParaAtualizar.nome;
-      usuarioSalvo.email = dadosParaAtualizar.email;
-      usuarioSalvo.senha = dadosParaAtualizar.senha;
+      if (!usuarioSalvo) return { message: 'Usuário não encontrado' };
+      
       return {
-        usuario: new ListaUsuarioDto(usuarioSalvo.id, usuarioSalvo.nome),
         message: 'Usuário atualizado com sucesso',
+        usuarioSalvo,
       };
-    } catch (error) {
-      return {
-        message: 'Erro ao atualizar usuário',
-      };
+    } catch (error) { return {message: 'Erro ao atualizar usuário'};
     }
   }
 
   @Delete('/:id')
   async deletarUsuario(@Param('id') id: string) {
-    const usuarioSalvo = await this.usuariosRepository.buscarPorId(id);
+    const usuarioRemovido = await this.usuariosRepository.remover(id);
     try {
-      if (!usuarioSalvo) {
+      if (!usuarioRemovido) {
         return { message: 'Usuário não encontrado' };
       }
-      this.usuariosRepository.deletar(usuarioSalvo.id);
       return {
         message: 'Usuário deletado com sucesso',
       };
