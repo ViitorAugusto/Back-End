@@ -5,6 +5,14 @@ export const ping = (req: Request, res: Response) => {
     res.json({pong: true});
 }
 
+export const users = async (req: Request, res: Response) => {
+    let user = await User.create({ 
+        dat
+    });
+    res.json({ user });
+
+}
+
 export const register = async (req: Request, res: Response) => {
     if(req.body.email && req.body.password) {
         let { email, password } = req.body;
@@ -12,7 +20,7 @@ export const register = async (req: Request, res: Response) => {
         let hasUser = await User.findOne({where: { email }});
         if(!hasUser) {
             let newUser = await User.create({ email, password });
-
+            console.log(newUser, 'Cheguei aqui');
             res.status(201);
             res.json({ id: newUser.id });
         } else {
