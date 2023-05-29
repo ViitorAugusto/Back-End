@@ -17,19 +17,25 @@ function renderMessage(type, user, msg) {
       ul.innerHTML += `<li class="m-status">${msg}</li>`;
       break;
     case "msg":
-      ul.innerHTML += `<li class="m-txt"><span class="m-user">${user}</span>${msg}</li>`;
+      if (username == user) {
+        ul.innerHTML += `<li class="m-txt"><span class="me">${user}</span>${msg}</li>`;
+      } else {
+        ul.innerHTML += `<li class="m-txt"><span class="m-user">${user}</span>${msg}</li>`;
+      }
       break;
   }
+
+  ul.scrollTop = ul.scrollHeight;
 }
 
 const renderUserList = () => {
-    let ul = document.querySelector(".userList");
-    ul.innerHTML = "";
-    
-    userList.forEach((i) => {
-        ul.innerHTML += `<li>${i}</li>`;
-    });
-}
+  let ul = document.querySelector(".userList");
+  ul.innerHTML = "";
+
+  userList.forEach((i) => {
+    ul.innerHTML += `<li>${i}</li>`;
+  });
+};
 
 loginPage.style.display = "flex";
 chatPage.style.display = "none";
@@ -61,8 +67,8 @@ socket.on("user-ok", (list) => {
   textInput.focus();
 
   renderMessage("status", null, "Conectado!");
-    userList = list;
-    renderUserList();
+  userList = list;
+  renderUserList();
 });
 
 socket.on("list-update", (data) => {
@@ -73,11 +79,27 @@ socket.on("list-update", (data) => {
   if (data.left) {
     renderMessage("status", null, `${data.left} saiu do chat!`);
   }
-    userList = data.list;
+  userList = data.list;
   renderUserList();
 });
 
-
 socket.on("show-msg", (data) => {
   renderMessage("msg", data.username, data.message);
+});
+
+socket.on("disconnect", () => {
+  renderMessage("status", null, "Você foi desconectado!");
+  userList = [];
+  renderUserList();
+});
+
+socket.on("reconnect_error", () => {
+  renderMessage("status", null, "Tentando reconectar...");
+});
+
+socket.on("reconnect", () => {
+  renderMessage("status", null, "Reconectado!");
+  if (username != "") {
+    socket.emit("join", username);
+  }
 });
